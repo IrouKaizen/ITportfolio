@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,6 +48,7 @@
   html {
     @apply scroll-smooth;
     scroll-padding-top: 5rem;
+    overflow-x: hidden;
   }
 }
 
@@ -79,5 +79,32 @@
 
   .smooth-transition {
     @apply transition-all duration-500 ease-in-out;
+  }
+  
+  .scroll-section {
+    @apply min-h-screen flex items-center py-20;
+  }
+  
+  .parallax-bg {
+    @apply fixed inset-0 bg-cover bg-center -z-10;
+    transform: translateZ(-10px) scale(2);
+  }
+}
+
+/* Smooth Scroll Enhanced */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
