@@ -3,10 +3,10 @@ import { Award, Briefcase, Calendar, Users } from 'lucide-react';
 
 const About = () => {
   const stats = [
-    { value: '8+', label: 'Années d\'expérience', icon: <Briefcase className="w-5 h-5 text-portfolio-purple" /> },
-    { value: '30+', label: 'Projets complétés', icon: <Award className="w-5 h-5 text-portfolio-purple" /> },
-    { value: '12+', label: 'Événements organisés', icon: <Calendar className="w-5 h-5 text-portfolio-purple" /> },
-    { value: '500+', label: 'Participants', icon: <Users className="w-5 h-5 text-portfolio-purple" /> },
+    { value: '8+', label: 'Années d\'expérience', icon: <Briefcase className="w-5 h-5 text-portfolio-caramel" /> },
+    { value: '30+', label: 'Projets complétés', icon: <Award className="w-5 h-5 text-portfolio-caramel" /> },
+    { value: '12+', label: 'Événements organisés', icon: <Calendar className="w-5 h-5 text-portfolio-caramel" /> },
+    { value: '500+', label: 'Participants', icon: <Users className="w-5 h-5 text-portfolio-caramel" /> },
   ];
 
   const skills = [
@@ -17,7 +17,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-20 smooth-transition">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">À propos de moi</h2>
@@ -29,7 +29,7 @@ const About = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
           {stats.map((stat, index) => (
-            <div key={index} className="glass-card p-6 flex flex-col items-center text-center hover-scale">
+            <div key={index} className="glass-card p-6 flex flex-col items-center text-center hover-scale smooth-transition">
               <div className="rounded-full glass p-3 mb-4">
                 {stat.icon}
               </div>
@@ -41,7 +41,7 @@ const About = () => {
 
         {/* About Content */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-          <div className="glass-card p-8 rounded-2xl order-2 md:order-1">
+          <div className="glass-card p-8 rounded-2xl order-2 md:order-1 smooth-transition">
             <h3 className="text-2xl font-bold mb-4 text-white">Mon parcours</h3>
             <p className="text-white/80 mb-4">
               Avec plus de 8 ans d'expérience dans le management de projets IT et l'organisation d'événements tech, j'ai développé une expertise dans la fusion de ces deux domaines pour créer des expériences mémorables et des solutions efficaces.
@@ -60,22 +60,22 @@ const About = () => {
                   className="w-full h-full object-cover mix-blend-overlay opacity-80"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-portfolio-purple/30 rounded-full filter blur-xl"></div>
+              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-portfolio-chocolate/30 rounded-full filter blur-xl"></div>
             </div>
           </div>
         </div>
 
         {/* Skills */}
-        <div className="glass-card p-8 rounded-2xl">
+        <div className="glass-card p-8 rounded-2xl smooth-transition">
           <h3 className="text-2xl font-bold mb-8 text-center text-white">Compétences</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skillGroup, index) => (
               <div key={index}>
-                <h4 className="text-lg font-semibold mb-3 text-portfolio-purple">{skillGroup.category}</h4>
+                <h4 className="text-lg font-semibold mb-3 text-portfolio-caramel">{skillGroup.category}</h4>
                 <ul className="space-y-2">
                   {skillGroup.items.map((skill, i) => (
                     <li key={i} className="text-white/80 flex items-center">
-                      <span className="w-1.5 h-1.5 rounded-full bg-portfolio-purple mr-2"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-portfolio-caramel mr-2"></span>
                       {skill}
                     </li>
                   ))}

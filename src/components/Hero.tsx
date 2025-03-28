@@ -16,7 +16,7 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-slow">
-            <Button className="bg-portfolio-purple hover:bg-portfolio-purple/90 text-white px-8 py-6 rounded-full">
+            <Button className="bg-portfolio-chocolate hover:bg-portfolio-light-chocolate text-white px-8 py-6 rounded-full">
               Voir mes projets
             </Button>
             <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-6 rounded-full">
@@ -33,8 +33,8 @@ const Hero = () => {
       </div>
       
       {/* Decorative elements */}
-      <div className="absolute top-1/4 left-10 w-72 h-72 bg-portfolio-purple/20 rounded-full filter blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-portfolio-blue/20 rounded-full filter blur-3xl"></div>
+      <div className="absolute top-1/4 left-10 w-72 h-72 bg-portfolio-chocolate/20 rounded-full filter blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-portfolio-caramel/20 rounded-full filter blur-3xl"></div>
     </section>
   );
 };

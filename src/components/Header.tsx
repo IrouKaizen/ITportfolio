@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,6 +25,15 @@ const Header = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const smoothScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id.substring(1));
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      if (mobileMenuOpen) setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -41,12 +51,13 @@ const Header = () => {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => smoothScrollTo(e, link.href)}
               className="text-sm font-medium text-white/80 hover:text-white transition-colors"
             >
               {link.name}
             </a>
           ))}
-          <Button className="bg-portfolio-purple hover:bg-portfolio-purple/90 text-white rounded-full">
+          <Button className="bg-portfolio-chocolate hover:bg-portfolio-light-chocolate text-white rounded-full">
             Télécharger CV
           </Button>
         </nav>
@@ -62,23 +73,23 @@ const Header = () => {
       
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden glass-dark animate-fade-in">
+        <ScrollArea className="md:hidden glass-dark animate-fade-in max-h-[80vh]">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => smoothScrollTo(e, link.href)}
                 className="text-white/80 hover:text-white py-2 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
               </a>
             ))}
-            <Button className="bg-portfolio-purple hover:bg-portfolio-purple/90 text-white w-full rounded-full">
+            <Button className="bg-portfolio-chocolate hover:bg-portfolio-light-chocolate text-white w-full rounded-full">
               Télécharger CV
             </Button>
           </div>
-        </div>
+        </ScrollArea>
       )}
     </header>
   );
